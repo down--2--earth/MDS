@@ -47,6 +47,9 @@ namespace MDS.Web
             }
 
             //app.UseWelcomePage();
+            //app.UseDefaultFiles();
+            //app.UseStaticFiles();
+            app.UseFileServer();
              
             app.Run(async (context) =>
             {
