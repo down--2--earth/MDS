@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using MDS.Web.Services;
 
 namespace MDS.Web
 {
@@ -29,10 +30,14 @@ namespace MDS.Web
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            //services.AddSingleton(provider => Configuration);
+            services.AddSingleton<IConfiguration>(Configuration);
+            services.AddSingleton<ITestService, TestService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory
+            , ITestService testService)
         {
             loggerFactory.AddConsole();
 
@@ -43,7 +48,7 @@ namespace MDS.Web
 
             app.Run(async (context) =>
             {
-                await context.Response.WriteAsync(Configuration["message"]);
+                await context.Response.WriteAsync(Configuration["message"] + "  -  "+ testService.Test());
             });
         }
     }
