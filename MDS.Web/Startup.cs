@@ -46,8 +46,11 @@ namespace MDS.Web
                 app.UseDeveloperExceptionPage();
             }
 
+            //app.UseWelcomePage();
+             
             app.Run(async (context) =>
             {
+                //throw new Exception("$$$$$");
                 await context.Response.WriteAsync(Configuration["message"] + "  -  "+ testService.Test());
             });
         }
