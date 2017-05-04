@@ -3,7 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MDS.Web", "MDS.Web\MDS.Web.xproj", "{B0F6070E-3F1C-4EC2-B8DF-36B7977018E6}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{03078C49-FB23-47B0-ABF4-DA1A1B1A98C2}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{525FCCD6-954D-4514-8D6E-0F2CA81D2D85}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MDS.Web", "src\MDS.Web\MDS.Web.xproj", "{B0F6070E-3F1C-4EC2-B8DF-36B7977018E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -18,5 +25,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B0F6070E-3F1C-4EC2-B8DF-36B7977018E6} = {525FCCD6-954D-4514-8D6E-0F2CA81D2D85}
 	EndGlobalSection
 EndGlobal
