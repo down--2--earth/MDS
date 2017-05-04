@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using MDS.Web.Services;
+using Microsoft.AspNetCore.Routing;
 
 namespace MDS.Web
 {
@@ -52,13 +53,19 @@ namespace MDS.Web
             //app.UseStaticFiles();
             app.UseFileServer();
 
-            app.UseMvcWithDefaultRoute();
+            //app.UseMvcWithDefaultRoute();
+            app.UseMvc(ConfigureRoutes);
              
             app.Run(async (context) =>
             {
                 //throw new Exception("$$$$$");
                 await context.Response.WriteAsync(Configuration["message"] + "  -  "+ testService.Test());
             });
+        }
+
+        private void ConfigureRoutes(IRouteBuilder routeBuilder)
+        {
+            routeBuilder.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
         }
     }
 }
