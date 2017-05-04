@@ -31,6 +31,7 @@ namespace MDS.Web
         public void ConfigureServices(IServiceCollection services)
         {
             //services.AddSingleton(provider => Configuration);
+            services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<ITestService, TestService>();
         }
@@ -50,6 +51,8 @@ namespace MDS.Web
             //app.UseDefaultFiles();
             //app.UseStaticFiles();
             app.UseFileServer();
+
+            app.UseMvcWithDefaultRoute();
              
             app.Run(async (context) =>
             {
