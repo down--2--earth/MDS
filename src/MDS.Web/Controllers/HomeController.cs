@@ -1,15 +1,23 @@
-﻿using System;
+﻿using MDS.Web.Models;
+using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace MDS.Web.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
-        public string Index()
+        public ContentResult Index()
         {
-            return "HomeController";
+            return Content("HomeController");
+        }
+
+        public ObjectResult GetObjectResult()
+        {
+            var java = new Java { Id = 8, Name = "Java" };
+            return new ObjectResult(java);
         }
     }
 }
