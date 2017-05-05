@@ -19,5 +19,10 @@ namespace MDS.Web.Controllers
             var java = new Java { Id = 8, Name = "Java" };
             return new ObjectResult(java);
         }
+
+        public ViewResult TestView() {
+            var java = new Java { Id = 8, Name = "Java" };
+            return View(java);
+        }
     }
 }
