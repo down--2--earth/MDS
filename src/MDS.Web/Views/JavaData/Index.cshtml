@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MDS.Web.Models.Java>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>JavaData</title>
+</head>
+<body>
+    <h1>JavaData</h1>
+    <div>
+        <table>
+            @foreach (var java in Model)
+            {
+                <tr>
+                    <td>@java.Id</td>
+                    <td>@java.Name</td>
+                </tr>
+
+            }
+        </table>
+    </div>
+</body>
+</html>

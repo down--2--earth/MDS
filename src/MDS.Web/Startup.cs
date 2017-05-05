@@ -35,6 +35,7 @@ namespace MDS.Web
             services.AddMvc();
             services.AddSingleton<IConfiguration>(Configuration);
             services.AddSingleton<ITestService, TestService>();
+            services.AddScoped<IJavaData, JavaData>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
