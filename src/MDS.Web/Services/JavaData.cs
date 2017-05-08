@@ -9,6 +9,7 @@ namespace MDS.Web.Services
     public interface IJavaData
     {
         IEnumerable<Java> GetAll();
+        Java Get(int id);
     }
 
     public class JavaData : IJavaData
@@ -27,6 +28,12 @@ namespace MDS.Web.Services
         public IEnumerable<Java> GetAll()
         {
             return _java;
+        }
+
+        public Java Get(int id)
+        {
+            var x = _java.FirstOrDefault(j => j.Id == id);
+            return x;
         }
     }
 }

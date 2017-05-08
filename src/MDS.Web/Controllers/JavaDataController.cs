@@ -28,5 +28,20 @@ namespace MDS.Web.Controllers
             model.CurrentVersion = _testService.Test();
             return View(model);
         }
+
+        public string DisplayInputInt(int id = 3333)
+        {
+            return id.ToString();
+        }
+
+        public IActionResult Details(int id)
+        {
+            var model = _java.Get(id);
+            if(model == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
     }
 }
