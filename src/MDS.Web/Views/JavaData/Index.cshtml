@@ -1,13 +1,14 @@
-﻿@model IEnumerable<MDS.Web.Models.Java>
+﻿@model MDS.Web.ViewModels.JavaViewModel
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>JavaData</title>
 </head>
 <body>
     <h1>JavaData</h1>
+    <h3>@Model.CurrentVersion</h3>
     <div>
         <table>
-            @foreach (var java in Model)
+            @foreach (var java in Model.Javas)
             {
                 <tr>
                     <td>@java.Id</td>

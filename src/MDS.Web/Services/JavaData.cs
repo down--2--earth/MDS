@@ -1,4 +1,4 @@
-﻿using MDS.Web.Models;
+﻿using MDS.Web.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
