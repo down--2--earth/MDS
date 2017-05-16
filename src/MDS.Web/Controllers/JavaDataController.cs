@@ -39,6 +39,7 @@ namespace MDS.Web.Controllers
             var model = _java.Get(id);
             if(model == null)
             {
+                //return HttpNotFound();
                 return RedirectToAction("Index");
             }
             return View(model);
