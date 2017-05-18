@@ -10,7 +10,9 @@
     {
         <div>
             @Html.LabelFor(m => m.Name)
-            @Html.TextBoxFor(m => m.Name)
+            @*@Html.TextBoxFor(m => m.Name)*@
+            @Html.EditorFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
         </div>
         <div>
             @Html.LabelFor(m => m.Type)

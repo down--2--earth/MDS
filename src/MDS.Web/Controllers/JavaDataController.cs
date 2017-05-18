@@ -55,12 +55,17 @@ namespace MDS.Web.Controllers
         [HttpPost]
         public IActionResult Create(JavaEditViewModel model)
         {
-            var java = new Java();
-            java.Name = model.Name;
-            java.Type = model.Type;
-            _java.Add(java);
-
-            return RedirectToAction("Details", new { id = java.Id });
+            if (ModelState.IsValid)
+            {
+                var java = new Java();
+                java.Name = model.Name;
+                java.Type = model.Type;
+                _java.Add(java);
+                return RedirectToAction("Details", new { id = java.Id });
+            } else
+            {
+                return View();
+            }
         }
     }
 }
