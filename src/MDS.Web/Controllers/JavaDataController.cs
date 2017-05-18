@@ -60,7 +60,7 @@ namespace MDS.Web.Controllers
             java.Type = model.Type;
             _java.Add(java);
 
-            return View("Details", java);
+            return RedirectToAction("Details", new { id = java.Id });
         }
     }
 }
