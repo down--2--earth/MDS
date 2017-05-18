@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MDS.Web.Services;
 using MDS.Web.ViewModels;
+using MDS.Web.Entities;
 
 // For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -45,9 +46,21 @@ namespace MDS.Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public IActionResult Create()
         {
             return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(JavaEditViewModel model)
+        {
+            var java = new Java();
+            java.Name = model.Name;
+            java.Type = model.Type;
+            _java.Add(java);
+
+            return View("Details", java);
         }
     }
 }

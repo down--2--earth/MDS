@@ -10,11 +10,12 @@ namespace MDS.Web.Services
     {
         IEnumerable<Java> GetAll();
         Java Get(int id);
+        void Add(Java java);
     }
 
     public class JavaData : IJavaData
     {
-        public JavaData()
+        static JavaData()
         {
             _java = new List<Java>
             {
@@ -23,7 +24,7 @@ namespace MDS.Web.Services
             };
         }
 
-        List<Java> _java;
+        static List<Java> _java;
 
         public IEnumerable<Java> GetAll()
         {
@@ -34,6 +35,12 @@ namespace MDS.Web.Services
         {
             var x = _java.FirstOrDefault(j => j.Id == id);
             return x;
+        }
+
+        public void Add(Java java)
+        {
+            java.Id = _java.Max(r => r.Id) + 1;
+            _java.Add(java);
         }
     }
 }
