@@ -1,14 +1,11 @@
 ﻿@model MDS.Web.Entities.Java
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>@Model.Name</title>
-</head>
-<body>
-    <h1>@Model.Name</h1>
-    <div>@Model.Id</div>
-    <div>@Model.Type</div>
-    <div>
-        @Html.ActionLink("All", "Index")
-    </div>
-    </body>
-</html>
+@{
+    ViewBag.Title = Model.Name;
+}
+
+<h1>@Model.Name</h1>
+<div>@Model.Id</div>
+<div>@Model.Type</div>
+<div>
+    @Html.ActionLink("All", "Index")
+</div>

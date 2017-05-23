@@ -1,19 +1,18 @@
 ﻿@using MDS.Web.Entities
 @model MDS.Web.Entities.Java
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>Create</title>
-</head>
-<body>
-    <h1>Create</h1>
-    @using(Html.BeginForm())
-    {
-        <div>
-            @Html.LabelFor(m => m.Name)
-            @*@Html.TextBoxFor(m => m.Name)*@
-            @Html.EditorFor(m => m.Name)
-            @Html.ValidationMessageFor(m => m.Name)
-        </div>
+
+@{
+    ViewBag.Title = "Create";
+}
+<h1>Create</h1>
+@using (Html.BeginForm())
+{
+    <div>
+        @Html.LabelFor(m => m.Name)
+        @*@Html.TextBoxFor(m => m.Name)*@
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(m => m.Name)
+    </div>
         <div>
             @Html.LabelFor(m => m.Type)
             @Html.DropDownListFor(m => m.Type, Html.GetEnumSelectList(typeof(JavaType)))
@@ -21,6 +20,4 @@
         <div>
             <input type="submit" value="Save" />
         </div>
-    }
-</body>
-</html>
+}
