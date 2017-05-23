@@ -1,23 +1,25 @@
 ﻿@model MDS.Web.ViewModels.JavaViewModel
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <title>JavaData</title>
-</head>
-<body>
-    <h1>JavaData</h1>
-    <h3>@Model.CurrentVersion</h3>
-    <div>
-        <table>
-            @foreach (var java in Model.Javas)
-            {
-                <tr>
-                    <td>@java.Id</td>
-                    <td>@java.Name</td>
-                    <td>@Html.ActionLink(java.Id.ToString(), "Details", new { id = java.Id })</td>
-                </tr>
 
-            }
-        </table>
-    </div>
-</body>
-</html>
+@{
+    ViewBag.Title = "Java Data";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h1>JavaData</h1>
+
+<div>
+    <table>
+        @foreach (var java in Model.Javas)
+            {
+            <tr>
+                <td>@java.Id</td>
+                <td>@java.Name</td>
+                <td>@Html.ActionLink(java.Id.ToString(), "Details", new { id = java.Id })</td>
+            </tr>
+
+        }
+    </table>
+</div>
+
+@section footer {
+    <div>@Model.CurrentVersion</div>
+}
