@@ -18,6 +18,18 @@
     </table>
 </div>
 
+<div>
+    <br />
+    <br />
+    @Html.ActionLink("Create Java", "Create")
+</div>
+
+<div>
+    <br />
+    <br />
+    @Html.Partial("_Summery", "Partial View");
+</div>
+
 @section footer {
     <div>@Model.CurrentVersion</div>
 }
